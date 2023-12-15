@@ -2,6 +2,7 @@
 #define __BONUS_WHEEL_SCENE_H__
 
 #include "cocos2d.h"
+#include "BonusWheelTest.h"
 #include <vector>
 #include <string>
 
@@ -28,7 +29,6 @@ public:
     CREATE_FUNC(BonusWheelScene);
 
     int simulateSpin();
-    void testSpinFunction(); // unit test
 
 private:
     cocos2d::Node* wheelNode;

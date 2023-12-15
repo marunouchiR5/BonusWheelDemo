@@ -139,8 +139,10 @@ bool BonusWheelScene::init()
     wheelMenu->setPosition(Vec2::ZERO);
     this->addChild(wheelMenu); // Add menu to the scene
 
-    // Call the test function for debugging purposes
-    testSpinFunction();  // Make sure to remove or comment this out in the production build
+    #ifdef DEBUG
+        BonusWheelTest test(this);
+        test.runSpinTest();
+    #endif
 
     return true;
 }
@@ -261,27 +263,4 @@ void BonusWheelScene::onSpinEnd(int winningIndex)
 void BonusWheelScene::claim()
 {
     Director::getInstance()->replaceScene(BonusWheelScene::createScene());
-}
-
-void BonusWheelScene::testSpinFunction() {
-    std::map<int, int> prizeCounts;
-    for (int i = 0; i < 1000; ++i) {
-        int index = simulateSpin();
-        prizeCounts[index]++;
-    }
-
-    // Open a file to write the results
-    std::ofstream outFile("spin_results.txt");
-    if (!outFile.is_open()) {
-        std::cerr << "Failed to open file for writing." << std::endl;
-        return;
-    }
-
-    // Output the results to the file
-    for (const auto& pair : prizeCounts) {
-        outFile << "Prize: " << pair.first << ", Count: " << pair.second << std::endl;
-    }
-
-    // Close the file
-    outFile.close();
 }
