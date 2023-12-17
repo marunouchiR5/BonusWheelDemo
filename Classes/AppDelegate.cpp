@@ -34,7 +34,7 @@ using namespace cocos2d::experimental;
 
 USING_NS_CC;
 
-static cocos2d::Size designResolutionSize = cocos2d::Size(480, 800);
+static cocos2d::Size designResolutionSize = cocos2d::Size(1170, 2532);
 static cocos2d::Size smallResolutionSize = cocos2d::Size(480, 800);
 static cocos2d::Size mediumResolutionSize = cocos2d::Size(720, 1280);
 static cocos2d::Size largeResolutionSize = cocos2d::Size(1080, 1920);

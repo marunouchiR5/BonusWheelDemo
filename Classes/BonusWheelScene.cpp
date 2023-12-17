@@ -30,8 +30,8 @@ bool BonusWheelScene::init()
     wheelNode->addChild(wheelBackground);
 
     // Scale wheel elements
-    float maxWheelSize = visibleSize.height * 0.5f; // Example scaling factor
-    float scaleFactor = maxWheelSize / wheelBackground->getContentSize().height;
+    float maxWheelSize = visibleSize.width * 0.9f; // Example scaling factor
+    float scaleFactor = maxWheelSize / wheelBackground->getContentSize().width;
     wheelNode->setScale(scaleFactor);
 
     // Set the anchor point of wheelGameObject to the center of the wheel
@@ -54,7 +54,7 @@ bool BonusWheelScene::init()
     prizes.emplace_back("Hammer", "hammer.png", 1, 0.2f);
 
     // Calculate wheel radius and sector angle
-    float wheelRadius = (wheelBorder->getContentSize().width * scaleFactor) / 2 + 135.0f;
+    float wheelRadius = (wheelBorder->getContentSize().width * scaleFactor * .8f) / 2;
     float anglePerSector = 360.0f / prizes.size(); // Assuming 8 prizes
     float initialOffsetAngle = anglePerSector / 2;
 
