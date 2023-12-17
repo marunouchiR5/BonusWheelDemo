@@ -1,0 +1,10 @@
+# Ignore everything
+*
+
+# But not these directories...
+!Resources/
+!Classes/
+
+# ...and their contents.
+!Resources/*
+!Classes/*
