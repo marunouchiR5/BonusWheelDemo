@@ -113,7 +113,7 @@ void BonusWheelScene::initializePrizes() {
 
 float BonusWheelScene::calculateWheelRadius() const {
     float scaleFactor = calculateScaleFactor();
-    return (wheelBorder->getContentSize().width * scaleFactor * 0.8f) / 2; // The 0.8f factor can be adjusted as needed
+    return (wheelBorder->getContentSize().width * scaleFactor * 0.65f) / 2; // The factor can be adjusted as needed
 }
 
 void BonusWheelScene::positionPrize(int index, float wheelRadius, float anglePerSector, float prizeScaleFactor) {
@@ -165,7 +165,7 @@ std::string BonusWheelScene::formatPrizeAmountText(const Prize& prize) const {
 void BonusWheelScene::setupButtons() {
     cocos2d::Vec2 screenCenter = getScreenCenter();
     float maxWheelSize = getMaxWheelSize();
-    float spinButtonScaleFactor = 0.5f; // Adjust this value as needed
+    float spinButtonScaleFactor = 0.8f; // Adjust this value as needed
     
     // Setup spin button
     setupSpinButton(screenCenter, maxWheelSize, spinButtonScaleFactor);
