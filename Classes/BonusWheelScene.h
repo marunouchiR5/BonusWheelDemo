@@ -6,8 +6,7 @@
 #include <vector>
 #include <string>
 
-class BonusWheelScene : public cocos2d::Scene
-{
+class BonusWheelScene : public cocos2d::Scene {
 public:
     struct Prize {
         std::string prizeName;
@@ -38,6 +37,20 @@ private:
     cocos2d::Menu* wheelMenu;
     cocos2d::MenuItemImage* spinButton;
     cocos2d::MenuItemImage* claimButton;
+
+    void setupWheel();
+    void setupPrizes();
+    void setupButtons();
+    void setupSpinButton(const cocos2d::Vec2& screenCenter, float maxWheelSize, float buttonScaleFactor);
+    void setupClaimButton(const cocos2d::Vec2& screenCenter, float maxWheelSize, float buttonScaleFactor);
+    cocos2d::Vec2 getScreenCenter() const;
+    float getMaxWheelSize() const;
+    float calculateScaleFactor() const;
+    void setupWheelArrow(float scaleFactor, const cocos2d::Vec2& screenCenter);
+    void initializePrizes();
+    float calculateWheelRadius() const;
+    void positionPrize(int index, float wheelRadius, float anglePerSector, float prizeScaleFactor);
+    std::string formatPrizeAmountText(const Prize& prize) const;
 
     void clickSpinButton();
     void onSpinEnd(int winningIndex);
